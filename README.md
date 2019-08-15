@@ -6,6 +6,13 @@ Miniflow is a simple yet powerful bioinformatics workflow/pipeline engine that y
 
 It gives you much more power and control over your pipeline and also gives you completely independent and easy way to express interdependencies between tasks in a workflow.
 
+## how to install 
+
+Install all dependencies in requirements.txt file associated with this project
+
+``
+pip install -r requirements.txt
+``
 
 ## How to use 
 
