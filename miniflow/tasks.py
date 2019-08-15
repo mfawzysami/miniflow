@@ -1,7 +1,7 @@
 
 from executor import execute
 from jinja2 import Template
-
+from .email import send_email
 
 
 def check_error(e):
@@ -25,10 +25,14 @@ class Task(object):
 
 
     def __preprocess_param__(self,param):
-        if not param or not self.project:
-            return param
-        t = Template(param)
-        return t.render(**self.project.vars)
+       try:
+           if not param or not self.project:
+               return param
+           t = Template(param)
+           return t.render(**self.project.vars)
+       except Exception as e:
+
+           return param
 
 
     def prepare(self):
@@ -42,7 +46,7 @@ class Task(object):
 
     def __get_params__(self):
         if len(self.args.items()) > 0:
-            params = ["--{0}={1}".format(k, self.__preprocess_param__(v)) for k, v in self.args.items()]
+            params = ["--{0}={1}".format(k, self.__preprocess_param__(v)) for k, v in self.args.items() if "mail_" not in k]
             return " ".join(params)
         else:
             return ""
@@ -64,6 +68,8 @@ class Task(object):
             if not tool_command:
                 raise Exception("Can't rfrun the current task {0} , no command specified".format(self.name))
 
+            tool_command = self.__preprocess_param__(tool_command)
+
             if len(self.positional) > 0:
                 preprocessed_positionals = [self.__preprocess_param__(param) for param in self.positional]
                 tool_command += " " + " ".join(preprocessed_positionals)
@@ -75,7 +81,7 @@ class Task(object):
             logs = execute(full_command,capture=True)
             self.logit(logs)
             if self.args.get('notify',False):
-                self.notify(self.args.get('email', None), self.args.get('title', None), self.args.get('message', None))
+                self.notify(self.args.get('mail_receiver', None), self.args.get('mail_message', None))
 
             return self
 
@@ -103,5 +109,10 @@ class Task(object):
 
 
 
-    def notify(self, email=None, title=None, message=None):
-        print("Notifying current user that this task has been finished already.")
+    def notify(self, email=None, message=None):
+        try:
+            if self.project:
+                send_email(self.project.args,mail_message=message)
+        except Exception as e:
+            msg = check_error(e)
+            print (msg)
