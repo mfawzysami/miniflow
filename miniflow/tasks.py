@@ -31,12 +31,13 @@ class Task(object):
 
     def prepare(self):
         import os
-        if self.project and not os.path.exists(os.path.join(self.project.base_dir, "tmp/tasks/{0}".format(self.name))):
-            task_dir = os.path.join(self.project.base_dir, "tmp/tasks/{0}".format(self.name))
-            self.self_dir = task_dir
+        task_dir = os.path.join(self.project.base_dir, "tmp/tasks/{0}".format(self.name))
+        self.self_dir = task_dir
+        if self.project and not os.path.exists(task_dir):
             os.mkdir(task_dir)
-            if self.project:
-                self.project.vars["{0}_dir".format(self.name)] = task_dir
+
+        if self.project:
+            self.project.vars["{0}_dir".format(self.name)] = task_dir
 
     def __get_params__(self):
         if len(self.args.items()) > 0:
