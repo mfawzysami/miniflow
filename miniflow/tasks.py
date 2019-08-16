@@ -1,7 +1,7 @@
 
 from executor import execute
 from jinja2 import Template
-from .email import send_email
+from .email_utils import send_email
 
 
 def check_error(e):

@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 
 
 
+
 def send_email(args,mail_message):
     context = ssl.SSLContext()
     sender_email = args.get('mail_sender',None)
