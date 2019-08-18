@@ -38,14 +38,33 @@ class Project(object):
         if not task:
             raise Exception("Task should be an instance of a task")
         next_task.project = self
-        self.tasks[self.counter] = next_task
+        self.tasks[self.counter] = ("task",next_task)
         self.counter += 1
         return self
+
+    def then_in_future(self,procedure):
+        if not procedure:
+            raise Exception("You have to supply a callable python function")
+        if not self.prepared:
+            self.prepare()
+            self.prepared = True
+
+        self.tasks[self.counter] = procedure
+        self.counter += 1
+        return self
+
+
 
     def run(self):
         print("Starting MiniFlow Pipeline")
         for index in range(1,len(self.tasks.items())+1):
-           executing_task = self.tasks[index]
-           executing_task.run()
+           type , executing_task = self.tasks[index]
+           if type =='task':
+            executing_task.run()
+           else:
+               future_task = executing_task(self)
+               if future_task and isinstance(future_task,Task):
+                   future_task.run()
+
         print ("Finished Pipeline")
 
