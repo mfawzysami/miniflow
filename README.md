@@ -44,3 +44,47 @@ p.then(Task("QC","fastqc {{data_dir}}/SRR8436151.fastq")
 
 ```
 
+Assume your next task depends on the output files that a specific task will generate
+and in the same time, you can't enumerate the file names from the folder because the folder itself is not yet generated
+, so in this case, you should wrap your next task in a future ("Callable python function") that accepts one parameter which is the project object
+and it should return the task to be executed.
+
+#### Example : Future Task(s) - Callable Python functions
+
+```
+from miniflow import *
+import os
+
+p = Project(base_dir="/home/snouto/bioinf/miniflow",data_dir="/home/snouto/bioinf/data")
+
+run_names = ["SRR8125150.fastq","SRR8125151.fastq","SRR8125152.fastq","SRR8125153.fastq"]
+
+file_names = ",".join([os.path.join("<Your Directory>",x) for x in run_names])
+
+for file_path in file_names:
+    file_name = os.path.basename(file_path)
+    p.then(Task("Alignment","tophat --GTF {{data_dir}}/igenomes/hs/genes.gtf","--library-type=fr-unstranded","--num-threads 4" ,"-o {{Alignment_dir}}/"+file_name,"{{data_dir}}/index/hs","{{QCC_dir}}/"+file_name,notify=True))
+
+
+# afterwards the {{alignment}}/<Sample_name> folders are not there yet until tophat finishes all three of them
+# so if you want to enumerate programmatically over the files in these folders (which are not there yet), you will get nothing in return and your function
+will not have any input files included.
+
+# the best situation is to wrap them into futures or simply callable python functions , like the following
+
+def callable_future(project):
+    alignment_folder = project.vars['Alignment_dir']
+    files = os.listdir(alignment_folder)
+    file_paths = ",".join([os.path.join(alignment_folder,x) for x in files])
+    return Task("cufflinks","cufflinks -o {{cufflinks_dir}} " + file_paths,notify=True,mail_message="Cufflinks task has been finished")
+
+
+# then give this function to then_in_future method as a callable function
+p.then_in_future(callable_future)
+
+
+
+
+
+
+```
