@@ -49,7 +49,7 @@ class Project(object):
             self.prepare()
             self.prepared = True
 
-        self.tasks[self.counter] = procedure
+        self.tasks[self.counter] = ("future",procedure)
         self.counter += 1
         return self
 
