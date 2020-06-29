@@ -19,15 +19,14 @@ class Task(object):
         self.args = kwargs
         self.project = None
 
-    def __preprocess_param__(self, param):
+    def __preprocess_command__(self, command):
         try:
-            if not param or not self.project:
-                return param
-            t = Template(param)
+            if not command or not self.project:
+                return command
+            t = Template(command)
             return t.render(**self.project.vars)
         except Exception as e:
-
-            return param
+            return command
 
     def prepare(self):
         import os
@@ -41,7 +40,7 @@ class Task(object):
 
     def __get_params__(self):
         if len(self.args.items()) > 0:
-            params = ["--{0}={1}".format(k, self.__preprocess_param__(v)) for k, v in self.args.items() if
+            params = ["--{0}={1}".format(k, self.__preprocess_command__(v)) for k, v in self.args.items() if
                       "mail_" not in k]
             return " ".join(params)
         else:
@@ -51,8 +50,11 @@ class Task(object):
         import os
         try:
             if self.project and os.path.exists(os.path.join(self.project.base_dir, "tmp/logs")):
+                mode = 'w+'
+                if os.path.exists(os.path.join(self.project.base_dir,"tmp/logs/{0}_logs.txt".format(self.name))):
+                    mode = 'a+'
                 with open(os.path.join(self.project.base_dir, "tmp/logs/{0}_logs.txt".format(self.name)),
-                          mode='w+') as writer:
+                          mode=mode) as writer:
                     writer.write(output)
 
         except Exception as e:
@@ -63,12 +65,12 @@ class Task(object):
             self.prepare()
             tool_command = self.command
             if not tool_command:
-                raise Exception("Can't rfrun the current task {0} , no command specified".format(self.name))
+                raise Exception("Can't run the current task {0} , no command specified".format(self.name))
 
-            tool_command = self.__preprocess_param__(tool_command)
+            tool_command = self.__preprocess_command__(tool_command)
 
             if len(self.positional) > 0:
-                preprocessed_positionals = [self.__preprocess_param__(param) for param in self.positional]
+                preprocessed_positionals = [self.__preprocess_command__(param) for param in self.positional]
                 tool_command += " " + " ".join(preprocessed_positionals)
 
             full_command = "{0} {1}".format(tool_command, self.__get_params__())
@@ -85,7 +87,8 @@ class Task(object):
         except Exception as e:
             msg = check_error(e)
             print(msg)
-            self.logit(msg)
+            self.logit(str(e))
+
 
     def then(self, task):
         next_task = self
@@ -110,4 +113,4 @@ class Task(object):
                 send_email(self.project.args, mail_message=message)
         except Exception as e:
             msg = check_error(e)
-            print(msg)
+            self.logit(msg)
