@@ -37,6 +37,7 @@ class Task(object):
 
         if self.project:
             self.project.vars["{0}_dir".format(self.name)] = task_dir
+            self.project.vars["self_dir"] = task_dir
 
     def __get_params__(self):
         if len(self.args.items()) > 0:
