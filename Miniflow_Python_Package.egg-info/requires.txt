@@ -1,0 +1,12 @@
+coloredlogs==10.0
+executor==21.3
+fasteners==0.15
+humanfriendly==4.18
+Jinja2==2.10.1
+MarkupSafe==1.1.1
+monotonic==1.5
+property-manager==2.3.1
+pytz==2019.2
+six==1.12.0
+sqlparse==0.3.0
+verboselogs==1.7

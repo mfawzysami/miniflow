@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="340057fc-4cbf-4538-8f33-ee7109de89aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniflow/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/miniflow/project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniflow/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/miniflow/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,12 +22,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
-    <option name="y" value="-2" />
-    <option name="width" value="1920" />
-    <option name="height" value="1082" />
-  </component>
   <component name="ProjectId" id="1e02MvTmxLGSSJKldoYinrBmdKc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -35,6 +31,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -117,7 +115,11 @@
       <updated>1565878431285</updated>
       <workItem from="1565878435715" duration="17753000" />
       <workItem from="1565959118592" duration="1974000" />
-      <workItem from="1593444148225" duration="2573000" />
+      <workItem from="1593444148225" duration="3281000" />
+      <workItem from="1593451940663" duration="100000" />
+      <workItem from="1593452518418" duration="215000" />
+      <workItem from="1594654823265" duration="51000" />
+      <workItem from="1594654897180" duration="305000" />
     </task>
     <servers />
   </component>
@@ -133,38 +135,38 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2653" y="297" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593444197579" />
-    <state width="1874" height="279" key="GridCell.Tab.0.bottom" timestamp="1593448822352">
+    <state width="1874" height="344" key="GridCell.Tab.0.bottom" timestamp="1593450723308">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="279" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593448822352" />
-    <state width="1874" height="279" key="GridCell.Tab.0.center" timestamp="1593448822351">
+    <state width="1874" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593450723308" />
+    <state width="1874" height="344" key="GridCell.Tab.0.center" timestamp="1593450723307">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="279" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593448822351" />
-    <state width="1874" height="279" key="GridCell.Tab.0.left" timestamp="1593448822351">
+    <state width="1874" height="344" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593450723307" />
+    <state width="1874" height="344" key="GridCell.Tab.0.left" timestamp="1593450723307">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="279" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593448822351" />
-    <state width="1874" height="279" key="GridCell.Tab.0.right" timestamp="1593448822351">
+    <state width="1874" height="344" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593450723307" />
+    <state width="1874" height="344" key="GridCell.Tab.0.right" timestamp="1593450723308">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="279" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593448822351" />
-    <state width="1874" height="344" key="GridCell.Tab.1.bottom" timestamp="1593445686839">
+    <state width="1874" height="344" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593450723308" />
+    <state width="1874" height="344" key="GridCell.Tab.1.bottom" timestamp="1593450723309">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593445686839" />
-    <state width="1874" height="344" key="GridCell.Tab.1.center" timestamp="1593445686839">
+    <state width="1874" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593450723309" />
+    <state width="1874" height="344" key="GridCell.Tab.1.center" timestamp="1593450723308">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="344" key="GridCell.Tab.1.center/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593445686839" />
-    <state width="1874" height="344" key="GridCell.Tab.1.left" timestamp="1593445686839">
+    <state width="1874" height="344" key="GridCell.Tab.1.center/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593450723308" />
+    <state width="1874" height="344" key="GridCell.Tab.1.left" timestamp="1593450723308">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="344" key="GridCell.Tab.1.left/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593445686839" />
-    <state width="1874" height="344" key="GridCell.Tab.1.right" timestamp="1593445686839">
+    <state width="1874" height="344" key="GridCell.Tab.1.left/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593450723308" />
+    <state width="1874" height="344" key="GridCell.Tab.1.right" timestamp="1593450723309">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="344" key="GridCell.Tab.1.right/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593445686839" />
+    <state width="1874" height="344" key="GridCell.Tab.1.right/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593450723308" />
     <state x="2369" y="174" key="SettingsEditor" timestamp="1593444203875">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -195,7 +197,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/miniflow/project.py</url>
-          <line>46</line>
+          <line>44</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
