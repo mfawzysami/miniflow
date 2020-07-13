@@ -55,14 +55,21 @@ class Project(object):
 
     def run(self):
         print("Starting MiniFlow Pipeline")
+        previous_task = None
         for index in range(1,len(self.tasks.items())+1):
            type , executing_task = self.tasks[index]
            if type =='task':
-            executing_task.run()
+               if previous_task:
+                   executing_task.project.vars['previous_dir'] = previous_task.self_dir
+               executing_task.run()
+               previous_task = executing_task
            else:
                future_task = executing_task(self)
                if future_task and isinstance(future_task,Task):
+                   if previous_task:
+                       future_task.project.vars['previous_dir'] = previous_task.self_dir
                    future_task.run()
+                   previous_task = future_task
 
         print ("Finished Pipeline")
 

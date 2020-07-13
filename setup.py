@@ -13,7 +13,7 @@ def requirements():
 
 setup(
     name="Miniflow Python Package",
-    version="0.0.7",
+    version="0.0.8",
     author="Mohamed Fawzy",
     author_email="mfawzy.sami@gmail.com",
     description="Official Python Package for Mini Bioinformatics workflow wrapper (Miniflow)",

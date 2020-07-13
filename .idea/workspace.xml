@@ -4,7 +4,6 @@
     <list default="true" id="340057fc-4cbf-4538-8f33-ee7109de89aa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniflow/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/miniflow/project.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniflow/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/miniflow/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,6 +119,8 @@
       <workItem from="1593452518418" duration="215000" />
       <workItem from="1594654823265" duration="51000" />
       <workItem from="1594654897180" duration="305000" />
+      <workItem from="1594656448497" duration="127000" />
+      <workItem from="1594658828159" duration="373000" />
     </task>
     <servers />
   </component>
